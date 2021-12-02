@@ -1,0 +1,30 @@
+<% layout('backstageLayout') %>
+<main class="backstage__wrapper">
+  <div class="backstage__title">文章列表</div>
+  <div class="articles__list">
+    <% if (successMessage && successMessage.length > 0) { %>
+      <h3 class="success__msg">＊<%= successMessage %></h3>
+    <% } %>
+    <% for (const article of articles) { %>
+      <div class="list__block">
+        <div class="list__block-left">
+          <img src="<%= article.imageUrl %>" class="list__img">
+        </div>
+        <div class="list__block-right">
+          <div class="list__block-title"><%= article.title %></div>
+          <div class="list__block-desc">
+            <span><%= moment(article.createdAt).format('YYYY-MM-DD hh:mm') %></span>
+            <span class="material-icons-outlined md-16">folder</span>
+            <span class="articles__category">
+              <%= article.Category.name %>
+            </span>
+            <div class="list__block-button">
+              <a href="/updateArticle/<%= article.id %>">編輯</a>
+              <a href="/deleteArticle/<%= article.id %>">刪除</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    <% } %>
+  </div>
+</main>

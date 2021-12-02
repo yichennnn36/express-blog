@@ -1,0 +1,20 @@
+<% layout('indexLayout') %>
+<main class="login__wrapper">
+  <h2 class="site__title">Log in</h2>
+  <form method="POST" action="/login" class="login__form">
+    <div class="login__input">
+      username： <input type="text" name="username">
+    </div>
+    <div class="login__input">
+      password： <input type="password" name="password">
+    </div>
+    <% if (errMessage && errMessage.length > 0) { %>
+      <h3 class="error__msg"><%= errMessage %></h3>
+    <% } %>
+    <div class="login__btn">
+      <a href="/">回首頁</a>
+      <button class="submit__btn">登入</button>
+    </div>
+  </form>
+</main>
+<script src="js/focus.js"></script>

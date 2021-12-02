@@ -1,0 +1,11 @@
+<% layout('indexLayout') %>
+<main class="backstage__wrapper">
+  <div class="backstage__title">文章分類</div>
+  <div class="add__block">
+  <ol class="add__category-list">
+    <% for (const category of categories) { %>
+    <li> <%= category.name %></li>
+    <% } %>
+  </ol>
+  </div>
+</main>

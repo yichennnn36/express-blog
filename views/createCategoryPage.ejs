@@ -1,0 +1,29 @@
+<% layout('backstageLayout') %>
+<main class="backstage__wrapper">
+  <div class="add__category-block">
+    <div class="left__block">
+      <h3 class="backstage__title">現有文章分類</h3>
+      <ol class="add__category-list">
+        <% if (successMessage && successMessage.length > 0) { %>
+          <h3 class="success__msg"><%= successMessage %></h3>
+        <% } %>
+        <% for (const category of categories) { %>
+        <li> <%= category.name %></li>
+        <% } %>
+      </ol>
+    </div>
+    <div class="right__block">
+      <h3 class="backstage__title">新增文章分類</h3>
+      <form method="POST" action="createCategory" class="add__category-list">
+        <% if (errMessage && errMessage.length > 0) { %>
+          <h3 class="error__msg"><%= errMessage %></h3>
+        <% } %>
+        <h3 class="add__category-title">文章分類：</h3>
+        <input type="text" placeholder="請輸入文章分類" name="category">
+        <div class="submit__btn">
+          <button>送出</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</main>

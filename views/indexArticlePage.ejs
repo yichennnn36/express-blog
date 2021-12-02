@@ -1,0 +1,28 @@
+<% layout('indexLayout') %>
+<main class="wrapper">
+  <div class="one__article-block">
+    <img src="<%= article.imageUrl %>" class="articles__img">
+    <div class="one__article-content">
+      <div class="one__article-info">
+        <span class="one__article-at-time"><%= moment(article.createdAt).format('YYYY-MM-DD hh:mm') %></span>
+        <span class="material-icons-outlined md-16">folder</span>
+        <span class="one__article-category"><%= article.Category.name %></span>
+      </div>
+      <h2 class="one__article-title"><%= article.title %></h2>
+      <p class="one__article-context"><%- article.content %></p>
+    </div>
+    <div class="comment__block">
+      <div class="comment__area"></div>
+    </div>
+  </div>
+</main>
+<script src="/js/plugin/dist/main.js"></script>
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+  commentPlugin.init({
+    siteKey: 'yichenBlog-<%= article.id %>',
+    apiUrl: 'https://use.yichennnn.tw/api',
+    containerSelector: '.comment__area'
+  });
+});
+</script>

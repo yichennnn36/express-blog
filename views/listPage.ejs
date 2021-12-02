@@ -1,0 +1,23 @@
+<% layout('indexLayout') %>
+<main class="backstage__wrapper">
+  <div class="backstage__title">文章列表</div>
+  <div class="articles__list">
+    <% for (const article of articles) { %>
+      <a href="indexArticle/<%= article.id %>">
+        <div class="list__block">
+          <div class="list__block-left">
+            <img src="<%= article.imageUrl %>" class="list__img">
+          </div>
+          <div class="list__block-right">
+            <div class="list__block-title"><%= article.title %></div>
+            <div class="list__block-desc">
+              <span><%= moment(article.createdAt).format('YYYY-MM-DD hh:mm') %></span>
+              <span class="material-icons-outlined md-16">folder</span>
+              <span class="articles__category"><%= article.Category.name %></span>
+            </div>
+          </div>
+        </div>
+      </a>
+    <% } %>
+  </div>
+</main>

@@ -1,0 +1,23 @@
+<% layout('indexLayout') %>
+<main class="wrapper">
+  <div class="site__title">Y' Blog</div>
+  <div class="site__articles">
+    <% for (const article of articles) { %>
+      <div class="articles__block">
+        <img src="<%= article.imageUrl %>" class="articles__img" alt="pic">
+        <div class="articles__content">
+          <div class="articles__info">
+            <span class="articles__at-time"><%= moment(article.createdAt).format('YYYY-MM-DD hh:mm') %></span>
+            <span class="material-icons-outlined md-16">folder</span>
+            <span class="articles__category"><%= article.Category.name %></span>
+          </div>
+          <h2 class="articles__title"><%= article.title %></h2>
+          <div class="articles__context"><%- article.content %></div>
+          <div class="articles__btn">
+            <a href="indexArticle/<%= article.id %>">Read more...</a>
+          </div>
+        </div>
+      </div>
+    <% } %>
+  </div>
+</main>

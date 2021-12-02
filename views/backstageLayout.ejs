@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="/css/style.css">
+  <link rel="stylesheet" href="/css/reset.css">
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Nunito&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Material+Icons|Material+Icons+Outlined|Material+Icons+Two+Tone|Material+Icons+Round|Material+Icons+Sharp" rel="stylesheet">
+  <script src="https://cdn.ckeditor.com/4.7.3/basic/ckeditor.js"></script>
+  <title>Blog's BackStage</title>
+</head>
+<body>
+  <input type="checkbox" id="nav__control">
+  <header class="site__header">
+    <div class="site__icon"><a href="/">Z</a></div>
+    <label for="nav__control" class="nav__hamburger">
+      <span></span>
+    </label>
+    <nav class="site__navbar">
+      <li><a href="/backstage">文章列表</a></li>
+      <li><a href="/createArticle">新增文章</a></li>
+      <li><a href="/createCategory">新增分類</a></li>
+      <li><a href="/logout">後台登出</a></li>
+    </nav>
+  </header>
+  <%- body %>
+</body>
+</html>

@@ -1,0 +1,39 @@
+<% layout('backstageLayout') %>
+<main class="backstage__wrapper">
+  <div class="backstage__title">新增文章</div>
+  <div class="msg__block">
+    <% if (errMessage && errMessage.length > 0) { %>
+      <% for (const errMsg of errMessage) { %>
+        <h3 class="error__msg">＊<%= errMsg.msg %></h3>
+      <% } %>
+    <% } %>
+  </div>
+  <form method="POST" action="createArticle" enctype="multipart/form-data" class="add__article-block">
+    <h3 class="add__article-title">發表文章：</h3>
+    <div class="image__block">
+      <img id="image" src="/img/upload.png" alt="uploadImage">
+    </div>
+    <input type="file" class="form-control image__upload" name="image" accept="image/*">
+    <input type="text" placeholder="請輸入文章標題" name="title" value="<% if (article.title) { %><%= article.title %><% } %>">
+    <select name="category">
+      <option value="not-selected">請選擇文章分類</option>
+      <% for (const category of categories) { %>
+        <option value="<%= category.name %>" 
+          <% if (article.category && category.name === article.category) { %>
+          selected <% } %>
+        ><%= category.name %></option>
+      <% } %>
+    </select>
+    <div class="add__article-input">
+      <textarea name="content">
+        <% if (article.content) { %>
+        <%= article.content %>
+        <% } %>
+      </textarea>
+    </div>
+    <div class="submit__btn">
+      <button>送出</button>
+    </div>
+  </form>
+</main>
+<script src="js/ckeditor.js"></script>
