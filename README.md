@@ -16,6 +16,7 @@
 - Express 框架
 - MVC 架構
 - EJS Template Emgine
+- Imgur API 串接
 - Sequelize ODM 操作資料庫
 - pm2 + Nginx 部署
 
